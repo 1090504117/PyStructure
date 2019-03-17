@@ -45,22 +45,27 @@ def func(start_key, end_key):
     processing[start_key] = True
     lowest_cost_key = None
     while True:
-        parent_key = lowest_cost_key
         lowest_cost_key = find_lowest_cost_node(path_nums)
-        if (lowest_cost_key == end_key) or (not lowest_cost_key):
+        if lowest_cost_key == end_key or not lowest_cost_key:
             if path_nums.has_key(end_key):
                 return path_nums[end_key]
             else:
                 return -1
-        processed[lowest_cost_key] = True
 
         del processing[lowest_cost_key]
+        processed[lowest_cost_key] = True
         for key, value in graph[lowest_cost_key].items():
             if not processed.has_key(key):
                 processing[key] = True
                 if not path_nums.has_key(key) or (path_nums[lowest_cost_key] + value) < path_nums[key]:
                     path_nums[key] = path_nums[lowest_cost_key] + value
                     parents[key] = lowest_cost_key
+
+'''
+字典用法，has_key 或者 in。None和数字要小心
+改进，变换一下字典的结构
+processing 与 path_nums需要分开
+'''
 
 def test():
    print func('Start', 'Fin')
