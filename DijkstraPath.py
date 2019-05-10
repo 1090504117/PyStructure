@@ -67,6 +67,6 @@ def func(start_key, end_key):
 processing 与 path_nums需要分开
 '''
 
-def test():
+def Test():
    print func('Start', 'Fin')
    print_path('Fin')

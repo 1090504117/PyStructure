@@ -1,9 +1,10 @@
 # -*- coding: UTF-8 -*-
 
 import BreadthFirstSearchPath
+import DeepthFirstSearchPath
 import DijkstraPath
 
 if __name__ == '__main__':
     #print BreadthFirstSearchPath.search('you')
-	DijkstraPath.test()
-
+    DeepthFirstSearchPath.Test()
+	#DijkstraPath.test()
